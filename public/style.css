@@ -1,0 +1,31 @@
+.reaction-gif {
+  position: absolute;
+  animation: reactionFade 7s linear;
+}
+
+@keyframes reactionFade {
+  0% {
+    opacity: 1;
+    width: 96px;
+  }
+  20% {
+    opacity: 1;
+    width: 64px;
+    transform: translate3d(10%, 0, 0);
+  }
+  40% {
+    opacity: 1;
+    width: 64px;
+    transform: translate3d(-20%, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    width: 64px;
+    transform: translate3d(20%, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    width: 32px;
+    bottom: 100%;
+  }
+}
