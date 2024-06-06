@@ -82,11 +82,11 @@ const getAsciiIcon = (reaction: string): string => {
 const showReactionGif = (icon: string): void => {
   const basePath = getBasePath()
 
-  const gif = document.createElement('img')
-  gif.src = `${basePath}/images/${icon.toLowerCase()}.gif`
-  gif.className = 'reaction-gif'
-  gif.style.left = `${Math.random() * 100}%`
-  gif.style.bottom = '0'
+  const img = document.createElement('img')
+  img.src = `${basePath}/images/${icon.toLowerCase()}.webp`
+  img.className = 'reaction-animation'
+  img.style.left = `${Math.random() * 100}%`
+  img.style.bottom = '0'
 
   const root = parent.document.querySelector(
     'div[data-testid="in-meeting-video-wrapper"]'
@@ -94,14 +94,14 @@ const showReactionGif = (icon: string): void => {
 
   if (root === null) {
     throw new Error(
-      'Could not find video wrapper to attach the reaction gif to.'
+      'Could not find video wrapper to attach the reaction animation.'
     )
   }
 
-  root.appendChild(gif)
+  root.appendChild(img)
 
   setTimeout(() => {
-    gif.remove()
+    img.remove()
   }, animationDuration)
 }
 

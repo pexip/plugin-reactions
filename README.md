@@ -4,6 +4,11 @@ This plugin gives the user possibility to share reactions with the rest of
 participants in a conference. We have three different reactions: applause, love
 and laugh.
 
+The animations were obtained from
+[Noto Emoji animations](https://googlefonts.github.io/noto-emoji-animation/)
+which are licensed under
+[CC by 4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
 For using this plugin you will need **Pexip Infinity v35** or later.
 
 ## How to use
