@@ -13,11 +13,11 @@ const plugin = await registerPlugin({
   version: 0
 })
 
-const webPath = getBasePath()
+const basePath = getBasePath()
 
-const configuration = await readConfig(webPath)
+const configuration = await readConfig(basePath)
 
-const menuGroup = await createMenuGroup(webPath, configuration)
+const menuGroup = await createMenuGroup(basePath, configuration)
 
 const btn = await plugin.ui.addButton(menuGroup).catch((e) => {
   console.warn(e)
@@ -26,10 +26,10 @@ const btn = await plugin.ui.addButton(menuGroup).catch((e) => {
 btn?.onClick.add(async ({ buttonId }) => {
   createReaction(buttonId)
 
-  const entry = getResource(buttonId, configuration)
+  const resource = getResource(buttonId, configuration)
 
   plugin.ui.showToast({
-    message: configuration.ownReactionText + ' ' + entry?.toastIcon,
+    message: configuration.ownReactionText + ' ' + resource?.toastIcon,
     isInterrupt: true
   })
 
@@ -51,10 +51,10 @@ const createReaction = (reactionId: string) => {
     )
   }
 
-  const entry = getResource(reactionId, configuration)
+  const resource = getResource(reactionId, configuration)
   const image = parent.document.createElement('img')
 
-  image.setAttribute('src', webPath + RESOURCE_PATH + entry?.source)
+  image.setAttribute('src', basePath + RESOURCE_PATH + resource?.source)
   image.setAttribute('class', 'reactionImage')
 
   const randomOffset = 50 + (Math.random() - 0.5) * 80;

@@ -8,12 +8,12 @@ import { CONFIG_FILE, MESSAGE_PROPERTY, RESOURCE_PATH } from './constants'
 import { toolbarIcon } from './toolbaricon'
 
 /**
- * Read the configuration file from the webPath
- * @param webPath
+ * Read the configuration file from the basePath
+ * @param basePath
  * @returns The resources
  */
-export const readConfig = async (webPath: string): Promise<Configuration> => {
-  const response = await fetch(webPath + '/' + CONFIG_FILE)
+export const readConfig = async (basePath: string): Promise<Configuration> => {
+  const response = await fetch(basePath + '/' + CONFIG_FILE)
   const configuration = await response.json()
 
   if (isValidConfiguration(configuration)) {
@@ -24,16 +24,16 @@ export const readConfig = async (webPath: string): Promise<Configuration> => {
 }
 
 /**
- * Read the icon from the webPath
- * @param webPath  The path to the web
+ * Read the icon from the basePath
+ * @param basePath  The path to the web
  * @param resource The resource to read
  * @returns       The icon
  */
 export const readIcon = async (
-  webPath: string,
+  basePath: string,
   resource?: Resource
 ): Promise<Icon> => {
-  const mainIcon = await fetch(webPath + RESOURCE_PATH + resource?.icon.main)
+  const mainIcon = await fetch(basePath + RESOURCE_PATH + resource?.icon.main)
   const mainIconData = await mainIcon.text()
   return {
     main: mainIconData,
@@ -96,12 +96,12 @@ export const getResource = (id: string, configuration: Configuration) => {
 
 /**
  * Create the menu group
- * @param webPath The path to the web
+ * @param basePath The path to the web
  * @param configuration The configuration
  * @returns The menu group
  */
 export const createMenuGroup = async (
-  webPath: string,
+  basePath: string,
   configuration: Configuration
 ) => {
   const recordingGroup: RPCCallPayload<'ui:button:add'> = {
@@ -110,7 +110,7 @@ export const createMenuGroup = async (
     tooltip: configuration.tooltip,
     roles: ['chair', 'guest'],
     group: await Promise.all(
-      await mapResourcesToEntries(webPath, configuration.resources)
+      await mapResourcesToEntries(basePath, configuration.resources)
     )
   }
 
@@ -119,18 +119,18 @@ export const createMenuGroup = async (
 
 /**
  * Map the resources to entries
- * @param webPath The path to the web
+ * @param basePath The path to the web
  * @param resources The resources to map
  */
 const mapResourcesToEntries = async (
-  webPath: string,
+  basePath: string,
   resources: Resource[]
 ) => {
   return resources.map(async (resource) => {
     return {
       id: resource.id,
       position: 'toolbar',
-      icon: { custom: await readIcon(webPath, resource) },
+      icon: { custom: await readIcon(basePath, resource) },
       roles: ['chair', 'guest'],
       tooltip: resource.icon.text
     } as unknown as GroupButtonPayload
