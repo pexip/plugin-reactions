@@ -1,0 +1,56 @@
+{
+  "tooltip": "Reaktionen",
+  "ownReactionText": "Sie",
+  "resources": [
+    {
+      "id": "clap",
+      "icon": {
+        "main": "/icons/clappingIcon.svg",
+        "hover": "/icons/clappingIconHover.svg",
+        "text": "Applaus"
+      },
+      "toastIcon": "👏",
+      "source": "/animations/clap.gif"
+    },
+    {
+      "id": "heart",
+      "icon": {
+        "main": "/icons/heartIcon.svg",
+        "hover": "/icons/heartIconHover.svg",
+        "text": "Herz"
+      },
+      "toastIcon": "❤️",
+      "source": "/animations/hearts.gif"
+    },
+    {
+      "id": "laugh",
+      "icon": {
+        "main": "/icons/laughIcon.svg",
+        "hover": "/icons/laughIconHover.svg",
+        "text": "Lachen"
+      },
+      "toastIcon": "😄",
+      "source": "/animations/laugh.gif"
+    },
+    {
+      "id": "laughLoud",
+      "icon": {
+        "main": "/icons/laughLoudIcon.svg",
+        "hover": "/icons/laughLoudHover.svg",
+        "text": "Laut Lachen"
+      },
+      "toastIcon": "🤣",
+      "source": "/animations/laughLoud.gif"
+    },
+    {
+      "id": "sad",
+      "icon": {
+        "main": "/icons/sadIcon.svg",
+        "hover": "/icons/sadIconHover.svg",
+        "text": "Traurig"
+      },
+      "toastIcon": "😢",
+      "source": "/animations/sad.gif"
+    }
+  ]
+}
