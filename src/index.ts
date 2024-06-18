@@ -19,8 +19,6 @@ const configuration = await readConfig(webPath)
 
 const menuGroup = await createMenuGroup(webPath, configuration)
 
-let main = parent.document.getElementById('root')
-
 const btn = await plugin.ui.addButton(menuGroup).catch((e) => {
   console.warn(e)
 })
@@ -31,10 +29,7 @@ btn?.onClick.add(async ({ buttonId }) => {
   const entry = getResource(buttonId, configuration)
 
   plugin.ui.showToast({
-    message:
-    configuration.ownReactionText +
-      ' ' +
-      entry?.toastIcon,
+    message: configuration.ownReactionText + ' ' + entry?.toastIcon,
     isInterrupt: true
   })
 
@@ -46,9 +41,8 @@ btn?.onClick.add(async ({ buttonId }) => {
 })
 
 const createReaction = (reactionId: string) => {
-
   const root = parent.document.querySelector(
-    'div[data-testid="in-meeting-video-wrapper"]'
+    'div[data-testid="meeting-wrapper"]'
   )
 
   if (root === null) {
@@ -63,9 +57,8 @@ const createReaction = (reactionId: string) => {
   image.setAttribute('src', webPath + RESOURCE_PATH + entry?.source)
   image.setAttribute('class', 'reactionImage')
 
-  const center = root.getBoundingClientRect().left + root.getBoundingClientRect().width / 2;
-  const randomOffset = (Math.random() - 0.5) * 0.8 * root.getBoundingClientRect().width ;
-  image.style.left = `${center + randomOffset}px`;
+  const randomOffset = 50 + (Math.random() - 0.5) * 80;
+  image.style.left = `${randomOffset}%`
   image.style.bottom = 50 - 20 * Math.random() + 'vh'
 
   const id = 'rid' + Date.now()
