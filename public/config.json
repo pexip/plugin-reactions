@@ -1,0 +1,56 @@
+{
+  "tooltip": "Reactions",
+  "ownReactionText": "You",
+  "resources": [
+    {
+      "id": "clap",
+      "icon": {
+        "main": "/icons/clappingIcon.svg",
+        "hover": "/icons/clappingIconHover.svg",
+        "text": "Applause"
+      },
+      "toastIcon": "👏",
+      "source": "/animations/clap.gif"
+    },
+    {
+      "id": "love",
+      "icon": {
+        "main": "/icons/heartIcon.svg",
+        "hover": "/icons/heartIconHover.svg",
+        "text": "Love"
+      },
+      "toastIcon": "❤️",
+      "source": "/animations/hearts.gif"
+    },
+    {
+      "id": "laugh",
+      "icon": {
+        "main": "/icons/laughIcon.svg",
+        "hover": "/icons/laughIconHover.svg",
+        "text": "Laugh"
+      },
+      "toastIcon": "😄",
+      "source": "/animations/laugh.gif"
+    },
+    {
+      "id": "laughLoud",
+      "icon": {
+        "main": "/icons/laughLoudIcon.svg",
+        "hover": "/icons/laughLoudHover.svg",
+        "text": "Laugh Loud"
+      },
+      "toastIcon": "🤣",
+      "source": "/animations/laughLoud.gif"
+    },
+    {
+      "id": "sad",
+      "icon": {
+        "main": "/icons/sadIcon.svg",
+        "hover": "/icons/sadIconHover.svg",
+        "text": "Sad"
+      },
+      "toastIcon": "😢",
+      "source": "/animations/sad.gif"
+    }
+  ]
+}

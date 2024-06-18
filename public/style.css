@@ -1,7 +1,8 @@
-.reaction-animation {
+.reactionImage {
   position: absolute;
   animation: reactionFade 7s linear;
 }
+
 
 @keyframes reactionFade {
   0% {
